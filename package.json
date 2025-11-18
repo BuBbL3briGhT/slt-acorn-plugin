@@ -2,7 +2,11 @@
   "name": "slt-acorn-plugin",
   "version": "1.0.0",
   "description": "Acorn plugin enabling SLT syntax support.",
+  "type": "module",
   "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
   "dependencies": {
     "acorn": "^8.11.3",
     "acorn-walk": "^8.3.2"
