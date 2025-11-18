@@ -2,18 +2,9 @@
   "name": "slt-acorn-plugin",
   "version": "1.0.0",
   "description": "Acorn plugin enabling SLT syntax support.",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "tsc -b",
-    "test": "node --loader ts-node/esm test/plugin.test.ts"
-  },
+  "main": "src/index.js",
   "dependencies": {
     "acorn": "^8.11.3",
     "acorn-walk": "^8.3.2"
-  },
-  "devDependencies": {
-    "typescript": "^5.6.3",
-    "ts-node": "^10.9.2"
   }
 }
