@@ -1,4 +1,4 @@
-// import * as acorn from "acorn";
+import * as acorn from "acorn";
 
 // Minimal SLT plugin for Acorn v8 (CommonJS)
 export function sltPlugin(BaseParser) {
