@@ -1,4 +1,4 @@
-// lib/index.js
+// src/index.js
 const acorn = require("acorn");
 
 // Minimal SLT plugin for Acorn v8 (CommonJS)
