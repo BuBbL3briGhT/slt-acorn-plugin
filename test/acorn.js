@@ -5,7 +5,7 @@ import * as acorn from "acorn";
 
 describe("acorn", function () {
   it("is the expected version", function () {
-    assert.equal(acorn.version, "8.15.q");
+    assert.equal(acorn.version, "8.15.0");
   });
 });
 
