@@ -1,5 +1,8 @@
 // const acorn = require("acorn");
-// import acorn from "acorn";
+// import { version } from "acorn";
+// import * as acorn from "acorn";
+
+// console.log({"Acorn Version": version});
 
 // Minimal SLT plugin for Acorn v8 (CommonJS)
 export function sltPlugin(BaseParser) {
@@ -65,14 +68,6 @@ export function sltPlugin(BaseParser) {
     }
   };
 }
-
-// export default {
-//   sltPlugin,
-//   // helper: create a ready parser
-//   createParser() {
-//     return acorn.Parser.extend(sltPlugin);
-//   }
-// };
 
 export function createParser() {
   return acorn.Parser.extend(sltPlugin);
