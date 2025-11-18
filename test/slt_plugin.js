@@ -10,4 +10,17 @@ describe("sltPlugin", function () {
 });
 
 
+describe("SLTParser", () => {
+  describe("readWord", () => {
+    // Descrition of readWord
+  });
+  describe("parseStatement");
+  describe("parseSLT");
+});
+
+describe("createParser");
+
+
+
+
 

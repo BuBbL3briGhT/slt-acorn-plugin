@@ -5,9 +5,12 @@ export function sltPlugin(BaseParser) {
   return class SLTParser extends BaseParser {
     readWord() {
       // call base implementation
-      if (typeof super.readWord === "function") super.readWord();
-      // super.readWord sets `this.value` and `this.type` at runtime
-      if (typeof this.value === "string" && this.value.startsWith("slt_")) {
+      if (typeof super.readWord === "function")
+        super.readWord();
+      // super.readWord sets `this.value` and
+      // `this.type` at runtime
+      if (typeof this.value === "string"
+          && this.value.startsWith("slt_")) {
         this.type = acorn.tokTypes.name;
         this._isSLTToken = true;
       }
