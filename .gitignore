@@ -22,5 +22,4 @@ Thumbs.db
 *.tgz
 *.tar.gz
 
-*.tsbuildinfo
--
+package-lock.json
