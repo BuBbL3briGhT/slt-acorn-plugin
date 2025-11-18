@@ -21,5 +21,3 @@ Thumbs.db
 # Release artifacts
 *.tgz
 *.tar.gz
-
-package-lock.json
