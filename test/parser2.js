@@ -23,17 +23,12 @@ function wordsRegexp(words) {
 function makeParser(BaseParser) {
   return class extends BaseParser {
 
-    parse(program) {
-      console.log("hooking parse.");
-
+    constructor(...params) {
+      super(...params);
       const newKeywords = "si";
-      console.log(wordsRegexp(newKeywords));
-
       this.keywords = wordsRegexp(newKeywords);
-
-      return(super.parse(program));
+      return this;
     }
-
 
     parseStatement(context, topLevel, exports) {
       let starttype = this.type, node = this.startNode(), kind
