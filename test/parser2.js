@@ -10,15 +10,13 @@ var program =
 
 const tt = tokTypes;
 
-const _si =
-  Parser.acorn.keywordTypes["si"] =
-  new TokenType("si",
-    { keyword: "si" });
-
 function wordsRegexp(words) {
   return new RegExp("^(?:" +
     words.replace(/ /g, "|") + ")$")
 }
+
+const _si = Parser.acorn.keywordTypes["si"] =
+  new TokenType("si", { keyword: "si" });
 
 function makeParser(BaseParser) {
   return class extends BaseParser {
