@@ -6,6 +6,8 @@ var program =
   si (true) {
     42;
   }
+
+  función miFunción() {}
 `;
 
 const tt = tokTypes;
@@ -18,12 +20,15 @@ function wordsRegexp(words) {
 const _si = Parser.acorn.keywordTypes["si"] =
   new TokenType("si", { keyword: "si" });
 
+const _función = Parser.acorn.keywordTypes["función"] =
+  new TokenType("función", { keyword: "función" });
+
 function makeParser(BaseParser) {
   return class extends BaseParser {
 
     constructor(...params) {
       super(...params);
-      const newKeywords = "si";
+      const newKeywords = "si función";
       this.keywords = wordsRegexp(newKeywords);
       return this;
     }
@@ -32,6 +37,12 @@ function makeParser(BaseParser) {
       let starttype = this.type, node = this.startNode(), kind
 
       switch(starttype) {
+        case _función:
+          // Function as sole body of either an if statement or a labeled statement
+          // works, but not when it is part of a labeled statement that is the sole
+          // body of an if statement.
+          if ((context && (this.strict || context !== "if" && context !== "label")) && this.options.ecmaVersion >= 6) this.unexpected()
+          return this.parseFunctionStatement(node, false, !context)
         case _si: return this.parseIfStatement(node);
       }
 
