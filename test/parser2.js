@@ -3,11 +3,11 @@ import { Parser, tokTypes, TokenType } from "acorn";
 
 var program =
 `
-  si (true) {
-    42;
+  función miFunción() {
+    si (true) {
+      vuelta 42;
+    }
   }
-
-  función miFunción() {}
 `;
 
 const tt = tokTypes;
@@ -19,16 +19,18 @@ function wordsRegexp(words) {
 
 tt._if.keyword = "si";
 tt._function.keyword = "función";
+tt._return.keyword = "vuelta";
 
 Parser.acorn.keywordTypes["si"] = tt._if;
 Parser.acorn.keywordTypes["función"] = tt._function;
+Parser.acorn.keywordTypes["vuelta"] = tt._return;
 
 function makeParser(BaseParser) {
   return class extends BaseParser {
 
     constructor(...params) {
       super(...params);
-      const newKeywords = "si función";
+      const newKeywords = "si función vuelta";
       this.keywords = wordsRegexp(newKeywords);
       return this;
     }
