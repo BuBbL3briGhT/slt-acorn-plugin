@@ -11,8 +11,7 @@ describe("sltPlugin", function () {
 });
 
 
-const SLTParser = sltPlugin(Parser);
-SLTParser.configureKeywords({
+const SLTParser = sltPlugin(Parser, {
   "si": "if",
   "función": "function",
   "vuelta": "return"
@@ -30,7 +29,7 @@ var program =
 
 const resultado = SLTParser.parse(program);
 
-console.log(resultado);
+console.log(JSON.stringify(resultado ,null,' '));
 
 
 
