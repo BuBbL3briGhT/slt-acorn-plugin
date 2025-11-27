@@ -35,6 +35,17 @@ function makeParser(BaseParser) {
       return this;
     }
 
+    configureKeywords(keywordMap) {
+      const keywordTypes = this.acorn.keywordTypes;
+      for (keyword in keywordMap) {
+        const tt = tokTypes["_" +
+          keywordMap[keyword]];
+        tt.keyword = keyword;
+        keywordTypes[keyword] = tt;
+      }
+
+    }
+
   }
 }
 

@@ -21,5 +21,11 @@ describe("SLTParser", function() {
     });
   });
 
+
+  it("parses si as if", function () {
+    const reslutado = SLTParser.parse("si (true) {}");
+    console.log(resultado);
+  });
+
 });
 

@@ -2,22 +2,37 @@ import { describe, it } from "node:test";
 import assert from "node:assert";
 
 import { sltPlugin } from "../src/slt_plugin.js";
+import { Parser } from "acorn";
 
 describe("sltPlugin", function () {
   it("returns an SLTParser instance", function () {
-    assert(sltPlugin(function(){}));
+    assert(sltPlugin(Parser));
   });
 });
 
-describe("SLTParser", () => {
-  describe("readWord", () => {
-    // Descrition of readWord
-  });
-  describe("parseStatement");
-  describe("parseSLT");
+
+const SLTParser = sltPlugin(Parser);
+SLTParser.configureKeywords({
+  "si": "if",
+  "función": "function",
+  "vuelta": "return"
 });
 
-describe("createParser");
+
+var program =
+`
+  función miFunción() {
+    si (true) {
+      vuelta 42;
+    }
+  }
+`;
+
+const resultado = SLTParser.parse(program);
+
+console.log(resultado);
+
+
 
 
 
