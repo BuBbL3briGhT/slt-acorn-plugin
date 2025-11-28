@@ -18,7 +18,7 @@ export function sltPlugin(BaseParser, keywordMap) {
       for (const keyword in keywordMap) {
         const tt = tokTypes["_" +
           keywordMap[keyword]];
-        tt.keyword = keyword;
+        if(tt) tt.keyword = keyword;
         keywordTypes[keyword] = tt;
       }
       return this;
