@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Acorn plugin enabling SLT syntax support.",
   "type": "module",
-  "main": "index.js",
+  "main": "src/slt_plugin.js",
   "scripts": {
     "test": "node --test"
   },

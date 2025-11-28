@@ -1,5 +1,3 @@
-import { tokTypes, TokenType } from "acorn";
-
 function wordsRegexp(words) {
   return new RegExp("^(?:" +
     words.replace(/ /g, "|") + ")$")
@@ -13,6 +11,7 @@ export function sltPlugin(BaseParser, keywordMap) {
       super(...params);
       const keywordTypes =
         BaseParser.acorn.keywordTypes;
+      const tokTypes = BaseParser.acorn.tokTypes;
       const newKeywords = Object.keys(keywordMap);
       this.keywords = wordsRegexp(newKeywords.join(" "));
 
